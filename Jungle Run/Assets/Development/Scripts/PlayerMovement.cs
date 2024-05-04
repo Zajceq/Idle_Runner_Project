@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityAtoms.BaseAtoms; //Add this to use UnityAtoms inside script
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private InputActionReference jumpAction;
+
+    [SerializeField] private VoidEvent onJump; // Jumping event
 
     private Rigidbody2D _rigidbody;
     private float _playersMovementDirection = 0;
@@ -24,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         jumpAction.action.Enable();
 
         moveAction.action.performed += OnMove;
+        moveAction.action.canceled += OnMoveCanceled;
         jumpAction.action.performed += OnJump;
     }
 
@@ -31,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // unsubscribe and disable actions OnDisable to prevent bugs
         moveAction.action.performed -= OnMove;
+        moveAction.action.canceled -= OnMoveCanceled;
         jumpAction.action.performed -= OnJump;
 
         moveAction.action.Disable();
@@ -42,11 +47,17 @@ public class PlayerMovement : MonoBehaviour
         _playersMovementDirection = context.ReadValue<float>();
     }
 
+    private void OnMoveCanceled(InputAction.CallbackContext context)
+    {
+        _playersMovementDirection = 0; // Reset movement direction when input is canceled
+    }
+
     private void OnJump(InputAction.CallbackContext context)
     {
         // Handle jumping
         if (Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
         {
+            onJump.Raise(); // Raise jumping event
             _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
     }

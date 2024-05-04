@@ -16,7 +16,6 @@ public class Damageable : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health.Value -= damage;
-        onDamage.Raise();
 
         if (health.Value <= 0)
         {
@@ -25,6 +24,7 @@ public class Damageable : MonoBehaviour
         }
         else
         {
+            onDamage.Raise();
             Debug.Log("Damageable took damage.");
         }
     }
