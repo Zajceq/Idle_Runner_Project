@@ -1,7 +1,6 @@
 using Cinemachine;
 using UnityEngine;
 
-[RequireComponent(typeof(CinemachineVirtualCamera))]
 public class CameraShake : MonoBehaviour
 {
     [SerializeField] private float shakeTotalTime;
@@ -11,13 +10,10 @@ public class CameraShake : MonoBehaviour
     private CinemachineVirtualCamera _cinemachineVirtualCamera;
     private float _shakeTime = 0f;
 
-    private void Awake()
-    {
-        _cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
-    }
-
     public void ShakeCamera()
     {
+        _cinemachineVirtualCamera = (CinemachineVirtualCamera)CinemachineCore.Instance.GetActiveBrain(0).ActiveVirtualCamera;
+
         CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
             _cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
