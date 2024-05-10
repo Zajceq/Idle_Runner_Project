@@ -1,13 +1,10 @@
 using UnityEngine;
-using UnityAtoms.BaseAtoms;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class Collectable : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
-    [SerializeField] private CollectableSO collectableData;
-    [SerializeField] private IntVariable gameScore;
-
+    [SerializeField] private ObstacleSO obstacleData;
     [SerializeField] private UnityEvent onTriggerEnter;
 
     private SpriteRenderer _spriteRenderer;
@@ -19,14 +16,14 @@ public class Collectable : MonoBehaviour
 
     private void Start()
     {
-        _spriteRenderer.sprite = collectableData.CollectableSprite;
+        _spriteRenderer.sprite = obstacleData.ObstacleSprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            gameScore.Value += collectableData.CollectablePoints;
+            collision.gameObject.GetComponent<Damageable>().TakeDamage(obstacleData.ObstacleDamage);
             onTriggerEnter?.Invoke();
             gameObject.SetActive(false);
         }
