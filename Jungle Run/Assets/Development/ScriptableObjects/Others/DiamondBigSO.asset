@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d913f634a1eee6e49a599629ee31cc79, type: 3}
-  m_Name: CoinSO
+  m_Name: DiamondBigSO
   m_EditorClassIdentifier: 
-  CollectableName: Coin
-  CollectablePoints: 1
-  CollectableSprite: {fileID: 21300000, guid: c29162d11d03499498205196908712a5, type: 3}
+  CollectableName: DiamondBig
+  CollectablePoints: 25
+  CollectableSprite: {fileID: 21300000, guid: 3c3a006bd25f76d41a12cd6b35a5d622, type: 3}
