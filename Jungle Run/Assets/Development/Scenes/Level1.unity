@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abcf611a6fbe4554c8a7e117fd46ffe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerEffectMultiplier: 0.2
+  layerEffectMultiplier: 0
 --- !u!1 &1259360875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1483,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelParts:
-  - {fileID: 0}
+  - {fileID: 1176567879073494394, guid: 034e2674d05cf58418c8a274df1d9f97, type: 3}
+  - {fileID: 3155333940456010588, guid: d081d41cfad64cc458b6dcef9f6b6c7b, type: 3}
+  - {fileID: 6452686505676929160, guid: 2cbd0732b04f8aa47ab104a6daf528fc, type: 3}
+  - {fileID: 6068408632170757411, guid: 82abb59c5a48d484d9a80c67c999a6c7, type: 3}
   defaultPoolCapacity: 3
   maxPoolSize: 5
 --- !u!4 &1515594481
@@ -1495,11 +1498,11 @@ Transform:
   m_GameObject: {fileID: 1515594479}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.55, z: 1}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1727946182}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1727946179
 GameObject:
@@ -1593,7 +1596,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!4 &1727946182
 Transform:
   m_ObjectHideFlags: 0
@@ -1608,7 +1611,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 898375181}
-  - {fileID: 1515594481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1727946183
@@ -1956,6 +1958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelPart1
       objectReference: {fileID: 0}
+    - target: {fileID: 1176567879073494394, guid: 034e2674d05cf58418c8a274df1d9f97, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7341323946039397043, guid: 034e2674d05cf58418c8a274df1d9f97, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2010,4 +2016,5 @@ SceneRoots:
   - {fileID: 938262247}
   - {fileID: 210997530}
   - {fileID: 1817997358}
+  - {fileID: 1515594481}
   - {fileID: 4158657948229413251}
