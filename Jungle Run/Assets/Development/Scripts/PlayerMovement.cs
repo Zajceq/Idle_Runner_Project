@@ -88,6 +88,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
+        Jump();
+    }
+
+    public void Jump()
+    {
         // Handle jumping
         if (Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
         {
