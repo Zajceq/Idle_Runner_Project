@@ -28,7 +28,6 @@ public class Collectable : MonoBehaviour
         {
             gameScore.Value += collectableData.CollectablePoints;
             onTriggerEnter?.Invoke();
-            gameObject.SetActive(false);
         }
     }
 }
