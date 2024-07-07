@@ -25,7 +25,6 @@ public class Obstacle : MonoBehaviour
         {
             collision.gameObject.GetComponent<Damageable>().TakeDamage(obstacleData.ObstacleDamage);
             onTriggerEnter?.Invoke();
-            gameObject.SetActive(false);
         }
     }
 }
