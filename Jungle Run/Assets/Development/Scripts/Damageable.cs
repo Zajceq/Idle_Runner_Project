@@ -19,13 +19,12 @@ public class Damageable : MonoBehaviour
 
         if (health.Value <= 0)
         {
+            health.Value = 0;
             onDeath.Raise();
-            Debug.Log("Damageable has died.");
         }
         else
         {
             onDamage.Raise();
-            Debug.Log("Damageable took damage.");
         }
     }
 }
