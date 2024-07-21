@@ -21,7 +21,7 @@ public class LevelPartsSpawnerTrigger : MonoBehaviour
 
         if (Pool == null)
         {
-            Destroy(transform.parent.gameObject);
+            transform.parent.gameObject.SetActive(false);
             return;
         }
 
