@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class LevelPartsSpawner : Singleton<LevelPartsSpawner>
@@ -10,11 +11,31 @@ public class LevelPartsSpawner : Singleton<LevelPartsSpawner>
 
     private List<IObjectPool<GameObject>> objectPools = new List<IObjectPool<GameObject>>();
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ResetPools();
+    }
+
     private void Start()
     {
-        foreach (GameObject levelPart in levelParts) 
+        InitializePools();
+    }
+
+    private void InitializePools()
+    {
+        foreach (GameObject levelPart in levelParts)
         {
-            if (levelPart != null) 
+            if (levelPart != null)
             {
                 objectPools.Add(new ObjectPool<GameObject>(() => Instantiate(levelPart), levelPart => levelPart.SetActive(true),
                     levelPart => levelPart.SetActive(false), levelPart => Destroy(levelPart), true, defaultPoolCapacity, maxPoolSize));
@@ -22,17 +43,25 @@ public class LevelPartsSpawner : Singleton<LevelPartsSpawner>
         }
     }
 
+    private void ResetPools()
+    {
+        foreach (var pool in objectPools)
+        {
+            pool.Clear();
+        }
+        objectPools.Clear();
+        InitializePools();
+    }
+
     public void SpawnRandomLevelPart(Transform spawnTransform)
     {
-        int randomPartNumber = Random.Range(0, objectPools.Count - 1);
+        int randomPartNumber = Random.Range(0, objectPools.Count);
         var poolForSpawning = objectPools[randomPartNumber];
-        var partToSpawn = poolForSpawning.Get();
 
+        var partToSpawn = poolForSpawning.Get();
         partToSpawn.transform.position = spawnTransform.position;
 
-        if (partToSpawn.GetComponentInChildren<LevelPartsSpawnerTrigger>().Pool == null) 
-        { 
-            partToSpawn.GetComponentInChildren<LevelPartsSpawnerTrigger>().Pool = poolForSpawning;
-        }
+        var trigger = partToSpawn.GetComponentInChildren<LevelPartsSpawnerTrigger>();
+        trigger.Pool = poolForSpawning;
     }
 }
