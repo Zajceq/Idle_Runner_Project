@@ -1,12 +1,13 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] private string sceneName;
+    [SerializeField] private SceneAsset scene;
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(scene.name);
     }
 }
