@@ -12,7 +12,7 @@ public class VolumeSlider : MonoBehaviour
 
     private void Start()
     {
-        _volumeSlider.value = AudioListener.volume;
+        _volumeSlider.value = SaveManager.Instance.GetVolume();
 
         _volumeSlider.onValueChanged.AddListener(SetVolume);
     }
@@ -20,5 +20,10 @@ public class VolumeSlider : MonoBehaviour
     private void SetVolume(float volume)
     {
         AudioListener.volume = volume;
+    }
+
+    private void OnDisable()
+    {
+        SaveManager.Instance.SaveVolume(AudioListener.volume);
     }
 }
