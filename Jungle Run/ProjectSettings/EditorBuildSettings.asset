@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
-  - enabled: 1
     path: Assets/Development/Scenes/MainMenu.unity
     guid: 528c731c609b6c449ad9615b4f23c560
+  - enabled: 1
+    path: Assets/Development/Scenes/Level1.unity
+    guid: ebea3bbf5afa9b14aa4891666d5c79b6
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 1462cb0b5b9647346810e98b8e793407, type: 2}
