@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
          score.Value = 0;
+         AudioListener.volume = SaveManager.Instance.GetVolume();
     }
 
     public void PauseGame()
