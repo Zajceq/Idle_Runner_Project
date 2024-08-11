@@ -1061,7 +1061,7 @@ MonoBehaviour:
   _actionResponses: []
   _conditions: []
   _operator: 0
-  _replayEventBufferOnRegister: 1
+  _replayEventBufferOnRegister: 0
   _eventReference:
     _usage: 0
     _event: {fileID: 11400000, guid: 473a9eb0c60d17044849a6829ef41037, type: 2}
@@ -3814,7 +3814,7 @@ MonoBehaviour:
   _actionResponses: []
   _conditions: []
   _operator: 0
-  _replayEventBufferOnRegister: 1
+  _replayEventBufferOnRegister: 0
   _eventReference:
     _usage: 0
     _event: {fileID: 11400000, guid: 16fa8eadc2365d24db4cd1aaa4429a35, type: 2}
@@ -3983,7 +3983,7 @@ MonoBehaviour:
   _actionResponses: []
   _conditions: []
   _operator: 0
-  _replayEventBufferOnRegister: 1
+  _replayEventBufferOnRegister: 0
   _eventReference:
     _usage: 0
     _event: {fileID: 11400000, guid: 5aae5eb351fb5fd468eb14e6ec670c32, type: 2}
@@ -6327,23 +6327,11 @@ MonoBehaviour:
   _developerDescription: 
   _unityEventResponse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1441415913}
-        m_TargetAssemblyTypeName: CheckAtomIntValueChange, Assembly-CSharp
-        m_MethodName: CheckValueChange
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _actionResponses: []
   _conditions: []
   _operator: 0
-  _replayEventBufferOnRegister: 1
+  _replayEventBufferOnRegister: 0
   _eventReference:
     _usage: 2
     _event: {fileID: 0}
