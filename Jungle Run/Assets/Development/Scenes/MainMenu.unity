@@ -2812,7 +2812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a671bcd3ad1e240bc0d9dc277ea0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: ebea3bbf5afa9b14aa4891666d5c79b6, type: 3}
+  sceneName: Level1
 --- !u!1 &1867466230
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,7 +3116,7 @@ GameObject:
   - component: {fileID: 2078946547}
   - component: {fileID: 2078946546}
   m_Layer: 5
-  m_Name: PauseMenuCanvas
+  m_Name: MainMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
