@@ -8,8 +8,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-         score.Value = 0;
-         AudioListener.volume = SaveManager.Instance.GetVolume();
+        score.Value = 0;
+        AudioListener.volume = SaveManager.Instance.GetVolume();
+
+        float refreshRate = Screen.currentResolution.refreshRateRatio.numerator / (float)Screen.currentResolution.refreshRateRatio.denominator;
+        Application.targetFrameRate = Mathf.RoundToInt(refreshRate);
     }
 
     public void PauseGame()
