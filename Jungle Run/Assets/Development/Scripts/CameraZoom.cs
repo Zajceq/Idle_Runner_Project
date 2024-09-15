@@ -3,15 +3,15 @@ using Cinemachine;
 
 public class CameraZoom : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera walkCamera;
-    [SerializeField] private CinemachineVirtualCamera runCamera;
+    [SerializeField] private CinemachineVirtualCamera walkCamera; // Reference to the walk camera
+    [SerializeField] private CinemachineVirtualCamera runCamera; // Reference to the run camera
 
     public void ZoomIn()
     {
-        if (walkCamera != null && runCamera != null) 
+        if (walkCamera != null && runCamera != null)
         {
-            walkCamera.enabled = true;
-            runCamera.enabled = false;
+            walkCamera.enabled = true; // Enable walk camera
+            runCamera.enabled = false; // Disable run camera
         }
     }
 
@@ -19,8 +19,8 @@ public class CameraZoom : MonoBehaviour
     {
         if (walkCamera != null && runCamera != null)
         {
-            walkCamera.enabled = false;
-            runCamera.enabled = true;
+            walkCamera.enabled = false; // Disable walk camera
+            runCamera.enabled = true; // Enable run camera
         }
     }
 }
